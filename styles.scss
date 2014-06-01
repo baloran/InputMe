@@ -1,0 +1,189 @@
+@import "compass";
+@import "compass/reset";
+@import "compass/support";
+$legacy-support-for-ie:true;              
+$legacy-support-for-ie6: $legacy-support-for-ie;
+$legacy-support-for-ie7: $legacy-support-for-ie;
+$legacy-support-for-ie8: $legacy-support-for-ie;
+$experimental-support-for-svg: true;
+
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+$on:#2ecc71;
+$off:#e74c3c;
+
+h1{
+	font-size:26px;
+	margin-top:10px;
+	text-align:center;
+}
+
+body{
+	font-family:"Roboto";
+	background-color: #ecf0f1;
+}
+
+header{
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#content{
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+label{
+	margin-top: 25px;
+	display:inline-block;
+}
+
+.rounded{
+	cursor:pointer;
+	input{
+		display: none;
+	}
+	.round{
+		display: inline-block;
+		position:relative;
+		vertical-align: middle;
+		width:11px; height:11px;
+		border: 3px solid $off;
+		@include border-radius(9px);
+		@include transition-duration(0.3s);
+		span{
+			@include transition-duration(0.3s);
+		}
+	}
+	input:checked + .round{
+		border-color:$on;
+		span{
+			content: '';
+			display: block;
+			width:5px; height:5px;
+			background-color: $on;
+			@include border-radius(9px);
+			position: absolute;
+			top:3px; left:3px;
+		}
+	}
+}
+
+.button{
+	cursor:pointer;
+	text-align:middle;
+	.square{
+		display: inline-block;
+		width:130px;
+		height:65px;
+		vertical-align: middle;
+		overflow: hidden;
+		position:relative;
+		text-align: center;
+		.yes,.no{
+			display: inline-block;
+			width:50%;
+			height:65px;
+			background-color: $off;
+			float: left;
+			line-height: 65px;
+			position:absolute;
+			box-sizing: border-box;
+			z-index: 1;
+			@include border-radius(5px);
+			@include transition-duration(0.3s);
+			border:1px solid #c0392b;
+			color:white;
+		}
+		input:checked + .yes{
+			background-color: $on;
+			z-index: 2;
+			border:1px solid #27ae60;
+		}
+		input:checked + .no{
+			background-color: $off;
+			z-index: 1;
+			display: none;
+		}
+	}
+}
+
+.cross{
+	cursor:pointer;
+	input{
+		display: none;
+	}
+	.croix{
+		display: inline-block;
+		width:10px; height:10px;
+		border:3px solid $off;
+		vertical-align: middle;
+		z-index: 1;
+		position:relative;
+		@include border-radius(3px);
+		@include transition-duration(0.3s);
+		span{
+			z-index: 2;
+			display: inline-block;
+			position:absolute;
+			top:-6px; left:-1px;
+			width:18px;
+			height:18px;
+		}
+	}
+	input:checked + .croix{
+		border:3px solid $on;
+		span{
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0E5NERBOEYzRUJFMjExQTVEOEY1QjAxNkY4Q0QxMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDMzIyNTBGNUVFNDIxMUUyODdDQzlFQTA0NEI2MTkxNyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDMzIyNTBGNEVFNDIxMUUyODdDQzlFQTA0NEI2MTkxNyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU3QTk0REE4RjNFQkUyMTFBNUQ4RjVCMDE2RjhDRDEyIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3QTk0REE4RjNFQkUyMTFBNUQ4RjVCMDE2RjhDRDEyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+HYZ7oAAAATFJREFUeNpi1DtTyEABsAdiNyCuZqLAkHIg3gvEXCAOC5mG9AJxEZT9DkSQ46JaJENA4D05BoUAcSOaGD+pBikA8VwgZkQT1yfFIJDmOUDMhyb+H4qxGsSORSwFiJ3RxN4CsT8Qh6MbBLI1EYjvA7EMkrgAELeiGfIIiK2BeDNMAGaQJhAfBOJ5QCwJxFVImqqBWBSJ/wSI7YD4JrLJTNCEdQGIbZHEk4FYDojFgTgLSfw1EHsA8UN0v4MS5CyohnwkF7JBXfUWlnKB4BcQRwDxVayxgZTXQHlmIRBLIGn8gRRTOUA8FVe0Igf2LiA2R/I7G5IhK/AZgi36H0Fz9HkksQdAnEYooWFLRy+B2B2I70ATGyjgP5NjECx2PIF4ChDvIybp48siIBflEZsRAQIMAM3ONAVcMPwiAAAAAElFTkSuQmCC);
+		}
+	}
+}
+
+.ring-switch{
+	cursor:pointer;
+	input{
+		display: none;
+	}
+	.ring{
+		display: inline-block;
+		width:72px;
+		height:72px;
+		@include border-radius(72px);
+		position:relative;
+		.ringed{
+			display: inline-block;
+			width:72px;
+			height:72px;
+			@include border-radius(72px);
+			position:relative;
+			border:4px solid $off;
+		}
+		.middle{
+			width:30px;
+			height:30px;
+			@include border-radius(30px);
+			background-color: $off;
+			display: inline-block;
+			position:absolute;
+			right:-3px; top: -3px;
+		}
+		.on,.off{
+			position:absolute;
+			font-size: 14px;
+			color:white;
+		}
+		.on{
+			top:2px; left: 4px;
+			@include rotate(-45deg);
+		}
+		.off{
+			right:2px; top:4px;
+			@include rotate(45deg);
+		}
+	}
+	input:checked > .ringed{
+		border:4px solid $on;
+	}
+}

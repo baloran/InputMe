@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Input</title>
+	<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+	<header>
+		<h1>MyUi By Baloran</h1>
+	</header>
+	<div id="content">
+		<label for="first" class="myui">
+			<input type="checkbox" id="first">
+			Click me if you can
+		</label>
+		<label for="second" class="test">
+			<input type="checkbox" id="second">
+		</label>
+		<br>
+		<label for="thirth" class="best">
+			<input type="checkbox" id="thirth">
+			If you want check
+		</label> <br>
+		<label for="fourth" class="ring-switch">
+			<span class="ring">
+				<span class="ringed"></span>
+				<input type="checkbox" id="fourth">
+				<span class="on">On</span>
+				<span class="middle"></span>
+				<span class="off">Off</span>
+			</span>
+		</label>
+
+	</div>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="min/jquery.MyUi.min.js"></script>
+<script>
+	$(function() {
+		$(".myui").myui({
+			style:'rounded'
+		});
+		$(".test").myui({
+			style:'square',
+			text_true: 'Yes',
+			text_false: 'No'
+		});
+		$(".best").myui({
+			style:'cross',
+		});
+	});
+</script>
+</html>
